@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+<meta name="generator" content="pandoc">
+<style>
+.myheader {
+  background-image: url("https://github.com/holtzy/data_to_viz/raw/master/img/overview_RGG_faded.png");
+    min-height: 350px; 
+    background-size: 100% 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+  
+    height: 100%; 
+    width: 100% !important;
+  }
+.mytitle{
+  text-transform: uppercase;
+  font-family: 'Montserrat';
+  font-size: 200%;
+  font-weight: 500;
+  letter-spacing: 4px;
+  }   
+  pre:not([class]) {
+    background-color: white;
+  }
+
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+img.one {
+  height: 50%;
+  width: 50%;
+}
+div#layout {
+  text-align: center;
+}
+div#container {
+  width: 1000px;
+  height: 600px;
+  margin: auto;
+  background-color: #2F4A6D;
+}
+div#dataviz1 {
+		width: 1000px;
+		height: 600px;
+		margin: auto;
+		background-color: #2F4A6D;
+		}
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+.bar {
+  fill: #80cbc4;
+}
+
+text {
+  font-size: 12px;
+  fill: #fff;
+}
+
+path {
+  stroke: gray;
+}
+
+line {
+  stroke: gray;
+}
+line#limit {
+  stroke: #FED966;
+  stroke-width: 3;
+  stroke-dasharray: 3 6;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+
+.grid .tick line {
+  stroke: #9FAAAE;
+  stroke-opacity: 0.3;
+}
+
+text.divergence {
+  font-size: 14px;
+  fill: #2F4A6D;
+}
+
+text.value {
+  font-size: 14px;
+}
+
+text.title {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+text.label {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+text.source {
+  font-size: 10px;
+}
+.chart-line {
+    fill: none;
+    stroke: white;
+    stroke-width: 5px;
+}
+
+      .axis text {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 10pt;
+      }
+      .axis .label {
+        font-size: 10pt;
+      }
+
+      .axis path, .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+      }
+	  .overlay {
+	  fill: none;
+	  pointer-events: all;
+	 }
+
+	 .focus circle {
+	  fill: none;
+	  stroke: steelblue;
+	 }
+	 
+	 text {
+  font-size: 12px;
+  fill: #fff;
+}
+
+path {
+  stroke: gray;
+}
+
+line {
+  stroke: gray;
+}
+
+line#limit {
+  stroke: #FED966;
+  stroke-width: 3;
+  stroke-dasharray: 3 6;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+
+.grid .tick line {
+  stroke: #9FAAAE;
+  stroke-opacity: 0.3;
+}
+
+text.divergence {
+  font-size: 14px;
+  fill: #2F4A6D;
+}
+
+text.value {
+  font-size: 14px;
+}
+
+text.title {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+text.label {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+text.source {
+  font-size: 10px;
+}
+
+<!------text---->
+      .axis text {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 10pt;
+      }
+      .axis .label {
+        font-size: 10pt;
+      }
+
+      .axis path, .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+      }
+	  .overlay {
+	  fill: none;
+	  pointer-events: all;
+	 }
+
+	 .focus circle {
+	  fill: none;
+	  stroke: steelblue;
+	 }
+	 
+	 text {
+  font-size: 12px;
+  fill: #fff;
+}
+
+path {
+  stroke: gray;
+}
+
+line {
+  stroke: gray;
+}
+
+line#limit {
+  stroke: #FED966;
+  stroke-width: 3;
+  stroke-dasharray: 3 6;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+
+.grid .tick line {
+  stroke: #9FAAAE;
+  stroke-opacity: 0.3;
+}
+
+text.divergence {
+  font-size: 14px;
+  fill: #2F4A6D;
+}
+
+text.value {
+  font-size: 14px;
+}
+
+text.title {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+text.label {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+text.source {
+  font-size: 10px;
+}
+<!------text---->	  
+</style>
+</head>
+<title>World Population Projection 2050</title>
+<script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+<!--script src="https://data-to-viz.disqus.com/embed.js" data-timestamp="1564159367655"></script-->
+<!--link rel="prefetch" as="style" href="https://c.disquscdn.com/next/embed/styles/lounge.ce6283fdf1ef21abcc3576941df049ae.css">
+<link rel="prefetch" as="script" href="https://c.disquscdn.com/next/embed/common.bundle.4f78a44956523083e2be1589c3559f2b.js">
+<link rel="prefetch" as="script" href="https://c.disquscdn.com/next/embed/lounge.bundle.762e74cb517821bba7954d44b1633501.js">
+<link rel="prefetch" as="script" href="https://disqus.com/next/config.js">
+<script src="https://c.disquscdn.com/next/embed/alfalfalfa.0823c767a3bc925f628afd9bed26c958.js" async="" charset="UTF-8"></script-->
+
+<body>
+  <div class="myheader" style="text-align: center;">
+  <br>
+  <br><br>
+  <p class="mytitle">World Population Projection 2050</p>
+  <center><div class="mysubtitle">
+    <i>An effort to learn narative visualization.</i>
+  </div></center>
+  <br><br>
+<div class="mycontent">
+<p align="left"><br> Martini Glass Visualtization - This analysis is based martini glass visualization taking into consideration to provide author selected questions, suggestion data to reader and then allow reader to drill down further in any direction based on its choice keeping structure in mind which will present an overview and allows the user to explore further from there.</p>
+<p><br></p>
+<p>The world population of 250 countries as a whole is taken as an example.</p>
+<p><br></p> 
+
+<h2> How is the population of world distributed today over the world map</h2>  
+<p align="left">Below population cartogram: a geographical presentation of the world where the size of the countries are not drawn according to the distribution of land, but according to the distribution of people. The cartogram shows where in the world the global population was at home in 2018</p>
+<p>**Below image is reference from world popuation growth website <a href="https://ourworldindata.org/world-population-growth">World Population Growth</a></p>
+<img class = "one" src="Population-cartogram_World-2.png" alt="Population cartogram" width="300" height="300"><br>
+
+<p><br></p> 
+<h2> How many years it took population of world to add 1 billion to its growth</h2>  
+<p align="left">Below bar chart:This visualisation shows again how the population growth rate has changed dramatically through time. It wasn't until 1803 that the world reached its first billion; it then took another 124 years to reach two billion. By the third billion, this period had reduced to 33 years, reduced further to 15 years to reach four. The period of fastest growth occurred through 1975 to 2011, taking only 12 years to increase by one billion for the 5th, 6th and 7th</p>
+<p>**Below image is reference from world popuation growth website <a href="https://ourworldindata.org/world-population-growth">World Population Growth</a></p>
+
+<img class = "one" src="Time-taken-to-increase-population-by-one-billion.png" alt="Time-taken-to-increase-population-by-one-billion" width="300" height="300"><br>
+
+<br>
+<h1>Bar Chart</h1>
+<hr>
+<p align="left">This is the First interactive scene of this story. This is a Bar Chart which will show population growth projection in Billions in 2050 by 5 regions where event listner is used when mouse is hovered on each bar, it will draw horizontal dotted line and calculate the differences compared to the other regions and display it on the bars. 
+</p> 
+<!-- Create a div where the graph will take place -->
+<div id='container'>
+      <svg />
+</div>
+<script>
+const sample_data = [
+      {
+        Region: 'Asia',
+        Population: 5.26,
+        color: '#000000'
+      },
+      {
+        Region: 'Africa',
+        Population: 2.53,
+        color: '#00a2ee'
+      },
+      {
+        Region: 'Europe',
+        Population: 0.72,
+        color: '#fbcb39'
+      },
+      {
+        Region: 'Latin America',
+        Population: 0.78,
+        color: '#007bc8'
+      },
+      {
+        Region: 'North America',
+        Population: 0.43,
+        color: '#65cedb'
+      }
+    ];
+
+    const svg = d3.select('svg');
+    const svgContainer = d3.select('#container');
+	    
+    const margin = 80;
+    const width = 1000 - 2 * margin;
+    const height = 600 - 2 * margin;
+
+    const chart = svg.append('g')
+      .attr('transform', `translate(${margin}, ${margin})`);
+
+    const xScale = d3.scaleBand()
+      .range([0, width])
+      .domain(sample_data.map((s) => s.Region))
+      .padding(0.4)
+    
+    const yScale = d3.scaleLinear()
+      .range([height, 0])
+      .domain([0, 6]);
+
+    const makeYLines = () => d3.axisLeft()
+      .scale(yScale)
+
+    chart.append('g')
+      .attr('transform', `translate(0, ${height})`)
+      .call(d3.axisBottom(xScale));
+
+    chart.append('g')
+      .call(d3.axisLeft(yScale));
+
+    chart.append('g')
+      .attr('class', 'grid')
+      .call(makeYLines()
+        .tickSize(-width, 0, 0)
+        .tickFormat('')
+      )
+
+    const barGroups = chart.selectAll()
+      .data(sample_data)
+      .enter()
+      .append('g')
+	  
+	barGroups
+      .append('rect')
+      .attr('class', 'bar')
+      .attr('x', (g) => xScale(g.Region))
+      .attr('y', (g) => yScale(0))
+      .attr('height', (g) => height - yScale(0))
+      .attr('width', xScale.bandwidth())
+      
+	barGroups.selectAll("rect")
+	  .transition()
+	  .duration(800)
+	  .attr('y', (g) => yScale(g.Population))
+	  .attr('height', (g) => height - yScale(g.Population))
+	  .delay(function(d,i){console.log(i) ; return(i*100)})
+
+	barGroups.selectAll("rect")
+      .on('mouseenter', function (actual, i) {
+        d3.selectAll('.Population')
+          .attr('opacity', 0)
+
+        d3.select(this)
+          .transition()
+          .duration(300)
+          .attr('opacity', 0.6)
+          .attr('x', (a) => xScale(a.Region) - 5)
+          .attr('width', xScale.bandwidth() + 10)
+
+        const y = yScale(actual.Population)
+
+        line = chart.append('line')
+          .attr('id', 'limit')
+          .attr('x1', 0)
+          .attr('y1', y)
+          .attr('x2', width)
+          .attr('y2', y)
+
+        barGroups.append('text')
+          .attr('class', 'divergence')
+          .attr('x', (a) => xScale(a.Region) + xScale.bandwidth() / 2)
+          .attr('y', (a) => yScale(a.Population) + 30)
+          .attr('fill', 'white')
+          .attr('text-anchor', 'middle')
+          .text((a, idx) => {
+            const divergence = (a.Population - actual.Population).toFixed(1)
+            
+            let text = ''
+            if (divergence > 0) text += '+'
+            text += `${divergence}`
+
+            return idx !== i ? text : '';
+          })
+
+      })
+      .on('mouseleave', function () {
+        d3.selectAll('.Population')
+          .attr('opacity', 1)
+
+        d3.select(this)
+          .transition()
+          .duration(300)
+          .attr('opacity', 1)
+          .attr('x', (a) => xScale(a.Region))
+          .attr('width', xScale.bandwidth())
+
+        chart.selectAll('#limit').remove()
+        chart.selectAll('.divergence').remove()
+      })
+
+    barGroups 
+      .append('text')
+      .attr('class', 'Population')
+      .attr('x', (a) => xScale(a.Region) + xScale.bandwidth() / 2)
+      .attr('y', (a) => yScale(a.Population) + 30)
+      .attr('text-anchor', 'middle')
+      .text((a) => `${a.Population}`)
+    
+    svg
+      .append('text')
+      .attr('class', 'label')
+      .attr('x', -(height / 2) - margin)
+      .attr('y', margin / 2.4)
+      .attr('transform', 'rotate(-90)')
+      .attr('text-anchor', 'middle')
+      .text('Population (Billions)')
+
+    svg.append('text')
+      .attr('class', 'label')
+      .attr('x', width / 2 + margin)
+      .attr('y', height + margin * 1.7)
+      .attr('text-anchor', 'middle')
+      .text('Regions')
+
+    svg.append('text')
+      .attr('class', 'title')
+      .attr('x', width / 2 + margin)
+      .attr('y', 40)
+      .attr('text-anchor', 'middle')
+      .text('Future Population Growth Projection 2050')
+</script>
+
+<br>
+<h1>Line Chart</h1>
+<hr>
+<div id="linechart" class="section level1">
+<p>Brush the chart to zoom to drill further into years and then in months. Double click to re-initialize the chart to its original place.</p>  
+<p>A <a href="http://localhost:8000/d3-examples/world_line_new.html">Linechart</a> : Brush the chart to zoom. Double click to re-initialize.</p> 
+
+<div id="dataviz1"></div>
+<script>
+// set the dimensions and margins of the graph
+var margin = 80, //{top: 10, right: 30, bottom: 30, left: 60},
+    width = 1000 - 2 * margin, //.left - margin.right,
+    height = 600 - 2 * margin;//.top - margin.bottom;
+
+	var xAxisLabelText = "Time";
+    var xAxisLabelOffset = 48;
+
+    var yAxisLabelText = "World Population(in Billion)";
+    var yAxisLabelOffset = 40;
+	
+// append the svg object to the body of the page
+var svg = d3.select("#dataviz1")
+    .append("svg")
+    .attr("width", margin)
+    .attr("height",margin)
+    .append("g")
+    .attr('transform', `translate(${margin}, ${margin})`);
+
+//Read the data
+d3.csv("worldPopEstimate.csv",
+  // When reading the csv, I must format variables:
+  function(d){
+    return { date : d3.timeParse("%Y-%m-%d")(d.date), value : d.value }
+  },
+
+  // Now I can use this dataset:
+  function(data) {
+
+    // Add X axis --> it is a date format
+    var x = d3.scaleTime()
+      .domain(d3.extent(data, function(d) { return d.date; }))
+      .range([ 0, width ]);
+		
+    xAxis = svg.append("g")
+	  .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));
+
+	var xAxisLabel = xAxis.append("text")
+        .style("text-anchor", "middle")
+        .attr("transform", "translate(" + (innerWidth / 2) + "," + xAxisLabelOffset + ")")
+        .attr("class", "x axis")
+        .text(xAxisLabelText);
+		
+    // Add Y axis
+    var y = d3.scaleLinear()
+      .domain([0, d3.max(data, function(d) { return +d.value; })])
+      .range([ height, 0 ]);
+	  
+    yAxis = svg.append("g")
+	  .attr("class", "y axis")
+      .call(d3.axisLeft(y));
+
+	var yAxisLabel = yAxis.append("text")
+        .style("text-anchor", "middle")
+        .attr("transform", "translate(-" + yAxisLabelOffset + "," + (innerHeight / 2) + ") rotate(-90)")
+        .attr("class", "y axis")
+        .text(yAxisLabelText);  
+		
+    // Add a clipPath: everything out of this area won't be drawn.
+    var clip = svg.append("defs").append("svg:clipPath")
+        .attr("id", "clip")
+        .append("svg:rect")
+        .attr("width", width )
+        .attr("height", height )
+        .attr("x", 0)
+        .attr("y", 0);
+
+    // Add brushing
+    var brush = d3.brushX()                   // Add the brush feature using the d3.brush function
+        .extent( [ [0,0], [width,height] ] )  // initialise the brush area: start at 0,0 and finishes at width,height: it means I select the whole graph area
+        .on("end", updateChart)               // Each time the brush selection changes, trigger the 'updateChart' function
+
+    // Create the line variable: where both the line and the brush take place
+    var line = svg.append('g')
+      .attr("clip-path", "url(#clip)")
+
+    // Add the line
+    line.append("path")
+      .datum(data)
+      .attr("class", "line")  // I add the class line to be able to modify this line later on.
+      .attr("fill", "none")
+      .attr("stroke", "steelblue")
+      .attr("stroke-width", 1.5)
+      .attr("d", d3.line()
+        .x(function(d) { return x(d.date) })
+        .y(function(d) { return y(d.value) })
+        )
+
+    // Add the brushing
+    line
+      .append("g")
+        .attr("class", "brush")
+        .call(brush);
+
+    // A function that set idleTimeOut to null
+    var idleTimeout
+    function idled() { idleTimeout = null; }
+
+    // A function that update the chart for given boundaries
+    function updateChart() {
+
+      // What are the selected boundaries?
+      extent = d3.event.selection
+
+      // If no selection, back to initial coordinate. Otherwise, update X axis domain
+      if(!extent){
+        if (!idleTimeout) return idleTimeout = setTimeout(idled, 350); // This allows to wait a little bit
+        x.domain([ 4,8])
+      }else{
+        x.domain([ x.invert(extent[0]), x.invert(extent[1]) ])
+        line.select(".brush").call(brush.move, null) // This remove the grey brush area as soon as the selection has been done
+      }
+
+      // Update axis and line position
+      xAxis.transition().duration(1000).call(d3.axisBottom(x))
+      line
+          .select('.line')
+          .transition()
+          .duration(1000)
+          .attr("d", d3.line()
+            .x(function(d) { return x(d.date) })
+            .y(function(d) { return y(d.value) })
+          )
+    }
+
+    // If user double click, reinitialize the chart
+    svg.on("dblclick",function(){
+      x.domain(d3.extent(data, function(d) { return d.date; }))
+      xAxis.transition().call(d3.axisBottom(x))
+      line
+        .select('.line')
+        .transition()
+        .attr("d", d3.line()
+          .x(function(d) { return x(d.date) })
+          .y(function(d) { return y(d.value) })
+      )
+    });	
+		
+})
+</script>
+</body>
+</html>
