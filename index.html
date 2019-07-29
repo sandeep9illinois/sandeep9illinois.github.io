@@ -233,11 +233,11 @@ text.source {
   <br><br>
   <p class="mytitle">World Population Projection 2050</p>
   <center><div class="mysubtitle">
-    <i>An effort to learn narative visualization.</i>
+    <i>An effort to learn narrative visualization.</i>
   </div></center>
   <br><br>
 <div class="mycontent">
-<p align="left"><br> Martini Glass Visualtization - This analysis is based martini glass visualization taking into consideration to provide author selected questions, suggestion data to reader and then allow reader to drill down further in any direction based on its choice keeping structure in mind which will present an overview and allows the user to explore further from there.</p>
+<!--p align="left"><br> Martini Glass Visualization - This analysis is based on martini glass visualization taking into consideration to provide author selected questions, suggestion data to reader and then allow reader to drill down further in any direction based on its choice keeping structure in mind which will present an overview and allows the user to explore further from there.</p-->
 <p><br></p>
 <p>The world population of 250 countries as a whole is taken as an example.</p>
 <p><br></p> 
@@ -253,9 +253,10 @@ text.source {
 <p>**Below image is reference from world popuation growth website <a href="https://ourworldindata.org/world-population-growth">World Population Growth</a></p>
 
 <img class = "one" src="Time-taken-to-increase-population-by-one-billion.png" alt="Time-taken-to-increase-population-by-one-billion" width="300" height="300"><br>
-
 <br>
-<h1>Bar Chart</h1>
+<p align="left">How the population will be spread among the 5 regions of world.</p>
+
+<h1>World population by Regions in charts</h1>
 <hr>
 <p align="left">This is the First interactive scene of this story. This is a Bar Chart which will show population growth projection in Billions in 2050 by 5 regions where event listner is used when mouse is hovered on each bar, it will draw horizontal dotted line and calculate the differences compared to the other regions and display it on the bars. 
 </p> 
@@ -352,7 +353,9 @@ const sample_data = [
       .on('mouseenter', function (actual, i) {
         d3.selectAll('.Population')
           .attr('opacity', 0)
-
+		
+		d3.select(this).style("cursor", "pointer"); 
+		
         d3.select(this)
           .transition()
           .duration(300)
@@ -400,6 +403,17 @@ const sample_data = [
         chart.selectAll('#limit').remove()
         chart.selectAll('.divergence').remove()
       })
+	  .on('click', function(actual) {
+		console.log("click", actual.Region);
+		if(actual.Region=='Asia')//window.open(this.href, '_blank');
+			window.location = "asia.html"; 
+		else if (actual.Region=='Africa')	
+			window.location = "africa.html"; 
+		else if (actual.Region=='Europe')
+			window.location = "europe.html"; 
+		else
+			console.log("click", actual.Region);
+	  })
 
     barGroups 
       .append('text')
@@ -434,13 +448,13 @@ const sample_data = [
 </script>
 
 <br>
-<p align="left">Drill down to get Top 6 Asian Cities Population growth Projection <a href='asia.html'>Asia Growth Projection 2050</a></p>
+<!--p align="left">Drill down to get Top 6 Asian Cities Population growth Projection <a href='asia.html'>Asia Growth Projection 2050</a></p-->
 
 <br>
-<h1>Line Chart</h1>
+<h1>World Population projection 2050 as a whole on a line chart</h1>
 <hr>
 <div id="linechart" class="section level1">
-<p align="left">World as a whole population projection 2050 on a line chart is provided here. Mouse pointer convert into "+" sign when navigate on to the chart area indicating to select a area.</p>  
+<p align="left">World as a whole population projection 2050 on a line chart is provided here. Mouse pointer convert into selection "+" sign when navigate on to the chart area indicating to select a area.</p>  
 <p align="left">Trigger - > Each time the brush selection changes, trigger the 'updateChart' function which update the chart and zoom into more details from years to months. This change is state in narrative visualtization are provided to user via select area and double click to reset the state.</p>
 <br>
 <div id="dataviz1">
@@ -592,6 +606,9 @@ d3.csv("worldPopEstimate.csv",
 <br>
 <p align="left">***All data source are reference from website
 <a href="https://ourworldindata.org">Our world in data </a>
+</p>
+<p align="left">***Essay
+<a href="Essay_DV498_733_Narrative_Visualization_Story.pdf">Narrative Visualization Story</a>
 </p>
 
 </body>

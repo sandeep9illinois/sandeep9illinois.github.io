@@ -216,12 +216,12 @@ text.source {
   
 </style>
 </head>
-<title>Asia Major cities Projection 2050</title>
+<title>Europe Major cities Projection 2050</title>
 <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <body>
 
-<h2> How is the population of Top 6 Asian cities will be distributed by 2050</h2>  
+<h2> How is the population of Top 5 European cities will be distributed by 2050</h2>  
 <p align="left">This Bar Chart which will show population growth projection in Millions in 2050 by 6 major cities where event listner is used when mouse is hovered on each bar, it will draw horizontal dotted line and calculate the differences compared to the other cities and display it on the bars. 
 </p> 
 <!-- Create a div where the graph will take place -->
@@ -231,34 +231,29 @@ text.source {
 <script>
 const sample_data = [
       {
-        Region: 'Mumbai ',
-        Population: 42.4,
+        Region: 'Istanbul(Turkey)',
+        Population: 14.7,
         color: '#000000'
       },
       {
-        Region: 'Delhi',
-        Population: 36.1,
+        Region: 'Moscow(Russia)',
+        Population: 12.4,
         color: '#00a2ee'
       },
       {
-        Region: 'Dhaka',
-        Population: 35.1,
+        Region: 'Paris(France)',
+        Population: 10.9,
         color: '#fbcb39'
       },
       {
-        Region: 'Shanghai',
-        Population: 21.3,
+        Region: 'London(UK)',
+        Population: 9.0,
         color: '#007bc8'
       },
       {
-        Region: 'Beijing',
-        Population: 15.0,
+        Region: 'Madrid(Spain)',
+        Population: 6.5,
         color: '#65cedb'
-      },
-	  {
-        Region: 'Guangzhou',
-        Population: 12.9,
-        color: '#fbcb39'
       }
     ];
 
@@ -279,7 +274,7 @@ const sample_data = [
     
     const yScale = d3.scaleLinear()
       .range([height, 0])
-      .domain([0, 46]);
+      .domain([0, 16]);
 
     const makeYLines = () => d3.axisLeft()
       .scale(yScale)
