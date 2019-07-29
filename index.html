@@ -213,82 +213,7 @@ text.label {
 text.source {
   font-size: 10px;
 }
-
-<!------text---->
-      .axis text {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 10pt;
-      }
-      .axis .label {
-        font-size: 10pt;
-      }
-
-      .axis path, .axis line {
-        fill: none;
-        stroke: #000;
-        shape-rendering: crispEdges;
-      }
-	  .overlay {
-	  fill: none;
-	  pointer-events: all;
-	 }
-
-	 .focus circle {
-	  fill: none;
-	  stroke: steelblue;
-	 }
-	 
-	 text {
-  font-size: 12px;
-  fill: #fff;
-}
-
-path {
-  stroke: gray;
-}
-
-line {
-  stroke: gray;
-}
-
-line#limit {
-  stroke: #FED966;
-  stroke-width: 3;
-  stroke-dasharray: 3 6;
-}
-
-.grid path {
-  stroke-width: 0;
-}
-
-.grid .tick line {
-  stroke: #9FAAAE;
-  stroke-opacity: 0.3;
-}
-
-text.divergence {
-  font-size: 14px;
-  fill: #2F4A6D;
-}
-
-text.value {
-  font-size: 14px;
-}
-
-text.title {
-  font-size: 22px;
-  font-weight: 600;
-}
-
-text.label {
-  font-size: 14px;
-  font-weight: 400;
-}
-
-text.source {
-  font-size: 10px;
-}
-<!------text---->	  
+  
 </style>
 </head>
 <title>World Population Projection 2050</title>
@@ -509,18 +434,23 @@ const sample_data = [
 </script>
 
 <br>
+<p align="left">Drill down to get Top 6 Asian Cities Population growth Projection <a href='asia.html'>Asia Growth Projection 2050</a></p>
+
+<br>
 <h1>Line Chart</h1>
 <hr>
 <div id="linechart" class="section level1">
-<p>Brush the chart to zoom to drill further into years and then in months. Double click to re-initialize the chart to its original place.</p>  
-<p>A <a href="http://localhost:8000/d3-examples/world_line_new.html">Linechart</a> : Brush the chart to zoom. Double click to re-initialize.</p> 
+<p align="left">World as a whole population projection 2050 on a line chart is provided here. Mouse pointer convert into "+" sign when navigate on to the chart area indicating to select a area.</p>  
+<p align="left">Trigger - > Each time the brush selection changes, trigger the 'updateChart' function which update the chart and zoom into more details from years to months. This change is state in narrative visualtization are provided to user via select area and double click to reset the state.</p>
+<br>
+<div id="dataviz1">
+</div>
 
-<div id="dataviz1"></div>
 <script>
-// set the dimensions and margins of the graph
-var margin = 80, //{top: 10, right: 30, bottom: 30, left: 60},
-    width = 1000 - 2 * margin, //.left - margin.right,
-    height = 600 - 2 * margin;//.top - margin.bottom;
+//    set the dimensions and margins of the graph
+//    var margin = 80, //{top: 10, right: 30, bottom: 30, left: 60},
+//    width = 1000 - 2 * margin, //.left - margin.right,
+//    height = 600 - 2 * margin;//.top - margin.bottom;
 
 	var xAxisLabelText = "Time";
     var xAxisLabelOffset = 48;
@@ -529,7 +459,7 @@ var margin = 80, //{top: 10, right: 30, bottom: 30, left: 60},
     var yAxisLabelOffset = 40;
 	
 // append the svg object to the body of the page
-var svg = d3.select("#dataviz1")
+var svg1 = d3.select("#dataviz1")
     .append("svg")
     .attr("width", margin)
     .attr("height",margin)
@@ -551,7 +481,7 @@ d3.csv("worldPopEstimate.csv",
       .domain(d3.extent(data, function(d) { return d.date; }))
       .range([ 0, width ]);
 		
-    xAxis = svg.append("g")
+    xAxis = svg1.append("g")
 	  .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x));
@@ -567,7 +497,7 @@ d3.csv("worldPopEstimate.csv",
       .domain([0, d3.max(data, function(d) { return +d.value; })])
       .range([ height, 0 ]);
 	  
-    yAxis = svg.append("g")
+    yAxis = svg1.append("g")
 	  .attr("class", "y axis")
       .call(d3.axisLeft(y));
 
@@ -578,9 +508,9 @@ d3.csv("worldPopEstimate.csv",
         .text(yAxisLabelText);  
 		
     // Add a clipPath: everything out of this area won't be drawn.
-    var clip = svg.append("defs").append("svg:clipPath")
+    var clip = svg1.append("defs").append("svg1:clipPath")
         .attr("id", "clip")
-        .append("svg:rect")
+        .append("svg1:rect")
         .attr("width", width )
         .attr("height", height )
         .attr("x", 0)
@@ -592,7 +522,7 @@ d3.csv("worldPopEstimate.csv",
         .on("end", updateChart)               // Each time the brush selection changes, trigger the 'updateChart' function
 
     // Create the line variable: where both the line and the brush take place
-    var line = svg.append('g')
+    var line = svg1.append('g')
       .attr("clip-path", "url(#clip)")
 
     // Add the line
@@ -645,7 +575,7 @@ d3.csv("worldPopEstimate.csv",
     }
 
     // If user double click, reinitialize the chart
-    svg.on("dblclick",function(){
+    svg1.on("dblclick",function(){
       x.domain(d3.extent(data, function(d) { return d.date; }))
       xAxis.transition().call(d3.axisBottom(x))
       line
@@ -659,5 +589,10 @@ d3.csv("worldPopEstimate.csv",
 		
 })
 </script>
+<br>
+<p align="left">***All data source are reference from website
+<a href="https://ourworldindata.org">Our world in data </a>
+</p>
+
 </body>
 </html>
