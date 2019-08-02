@@ -220,12 +220,6 @@ text.source {
 <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="https://d3js.org/d3.v4.js"></script>
-<!--script src="https://data-to-viz.disqus.com/embed.js" data-timestamp="1564159367655"></script-->
-<!--link rel="prefetch" as="style" href="https://c.disquscdn.com/next/embed/styles/lounge.ce6283fdf1ef21abcc3576941df049ae.css">
-<link rel="prefetch" as="script" href="https://c.disquscdn.com/next/embed/common.bundle.4f78a44956523083e2be1589c3559f2b.js">
-<link rel="prefetch" as="script" href="https://c.disquscdn.com/next/embed/lounge.bundle.762e74cb517821bba7954d44b1633501.js">
-<link rel="prefetch" as="script" href="https://disqus.com/next/config.js">
-<script src="https://c.disquscdn.com/next/embed/alfalfalfa.0823c767a3bc925f628afd9bed26c958.js" async="" charset="UTF-8"></script-->
 
 <body>
   <div class="myheader" style="text-align: center;">
@@ -239,20 +233,20 @@ text.source {
 <div class="mycontent">
 <!--p align="left"><br> Martini Glass Visualization - This analysis is based on martini glass visualization taking into consideration to provide author selected questions, suggestion data to reader and then allow reader to drill down further in any direction based on its choice keeping structure in mind which will present an overview and allows the user to explore further from there.</p-->
 <p><br></p>
-<p>The world population of 250 countries as a whole is taken as an example.</p>
+<p>The world population of 250 countries as a whole is used for below analysis.</p>
 <p><br></p> 
 
 <h2> How is the population of world distributed today over the world map</h2>  
 <p align="left">Below population cartogram: a geographical presentation of the world where the size of the countries are not drawn according to the distribution of land, but according to the distribution of people. The cartogram shows where in the world the global population was at home in 2018</p>
 <p>**Below image is reference from world popuation growth website <a href="https://ourworldindata.org/world-population-growth">World Population Growth</a></p>
-<img class = "one" src="Population-cartogram_World-2.png" alt="Population cartogram" width="300" height="300"><br>
+<img class = "one" src="Population-cartogram_World-2.png" alt="Population cartogram" width="400" height="400"><br>
 
 <p><br></p> 
 <h2> How many years it took population of world to add 1 billion to its growth</h2>  
 <p align="left">Below bar chart:This visualisation shows again how the population growth rate has changed dramatically through time. It wasn't until 1803 that the world reached its first billion; it then took another 124 years to reach two billion. By the third billion, this period had reduced to 33 years, reduced further to 15 years to reach four. The period of fastest growth occurred through 1975 to 2011, taking only 12 years to increase by one billion for the 5th, 6th and 7th</p>
 <p>**Below image is reference from world popuation growth website <a href="https://ourworldindata.org/world-population-growth">World Population Growth</a></p>
 
-<img class = "one" src="Time-taken-to-increase-population-by-one-billion.png" alt="Time-taken-to-increase-population-by-one-billion" width="300" height="300"><br>
+<img class = "one" src="Time-taken-to-increase-population-by-one-billion.png" alt="Time-taken-to-increase-population-by-one-billion" width="400" height="400"><br>
 <br>
 <p align="left">How the population will be spread among the 5 regions of world.</p>
 
@@ -506,7 +500,7 @@ d3.csv("worldPopEstimate.csv",
 
 	var xAxisLabel = xAxis.append("text")
         .style("text-anchor", "middle")
-        .attr("transform", "translate(" + (innerWidth / 2) + "," + xAxisLabelOffset + ")")
+        .attr("transform", "translate(" + (innerWidth / 4) + "," + xAxisLabelOffset + ")")
         .attr("class", "x axis")
         .text(xAxisLabelText);
 		
@@ -521,7 +515,7 @@ d3.csv("worldPopEstimate.csv",
 
 	var yAxisLabel = yAxis.append("text")
         .style("text-anchor", "middle")
-        .attr("transform", "translate(-" + yAxisLabelOffset + "," + (innerHeight / 2) + ") rotate(-90)")
+        .attr("transform", "translate(-" + yAxisLabelOffset + "," + (innerHeight / 4) + ") rotate(-90)")
         .attr("class", "y axis")
         .text(yAxisLabelText);  
 		
